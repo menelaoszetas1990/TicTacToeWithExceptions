@@ -103,6 +103,8 @@ public class Main {
         players[0] = new Player(playerName);
 
         System.out.println("ΠΑΡΑΚΑΛΩ ΔΩΣΤΕ ΤΟ ΟΝΟΜΑ ΤΟΥ ΔΕΥΤΕΡΟΥ ΠΑΙΧΤΗ:");
+        // if user does not give a name, then he is assigned his player's
+        // default name
         playerName = userInput.nextLine();
         if (playerName.equals("")) {
             playerName = "Player 2";
@@ -110,7 +112,7 @@ public class Main {
         players[1] = new Player(playerName);
     }
 
-    public static void getPlayerChoice (boolean playerOneTurn) throws IndexOutOfBoundsException, ChoiceAlreadyExistsException, InputMismatchException {
+    private static void getPlayerChoice (boolean playerOneTurn) throws IndexOutOfBoundsException, ChoiceAlreadyExistsException, InputMismatchException {
         // variables for user choice
         int rowNumber, columnNumber;
 
