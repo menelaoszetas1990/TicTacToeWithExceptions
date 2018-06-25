@@ -92,11 +92,14 @@ public class Main {
 
         System.out.println("ΠΑΡΑΚΑΛΩ ΔΩΣΤΕ ΤΟ ΟΝΟΜΑ ΤΟΥ ΠΡΩΤΟΥ ΠΑΙΧΤΗ ΑΛΛΙΩΣ ΠΑΤΗΣΤΕ ENTER ΓΙΑ ΟΝΟΜΑ \"Player 1\":");
         playerName = userInput.nextLine();
+        // remove leading and trailing zeros
         playerName = playerName.trim();
-        // if user does not give a name, then he is assigned his player's
-        // default name
+
+        // check if user input is null or just spaces
         String playerNameValidity = playerName;
         if (playerName.equals("") || playerNameValidity.replaceAll(" ", "").equals("")) {
+            // if user does not give a name, then he is assigned his player's
+            // default name
             System.out.println("ΣΑΣ ΔΟΘΗΚΕ ΤΟ ΟΝΟΜΑ: Player 1");
             playerName = "Player 1";
         }
@@ -104,11 +107,14 @@ public class Main {
 
         System.out.println("ΠΑΡΑΚΑΛΩ ΔΩΣΤΕ ΤΟ ΟΝΟΜΑ ΤΟΥ ΔΕΥΤΕΡΟΥ ΠΑΙΧΤΗ ΑΛΛΙΩΣ ΠΑΤΗΣΤΕ ENTER ΓΙΑ ΟΝΟΜΑ \"Player 2\":");
         playerName = userInput.nextLine();
+        // remove leading and trailing zeros
         playerName = playerName.trim();
-        // if user does not give a name, then he is assigned his player's
-        // default name
+
+        // check if user input is null or just spaces
         playerNameValidity = playerName;
         if (playerName.equals("") || playerNameValidity.replaceAll(" ", "").equals("")) {
+            // if user does not give a name, then he is assigned his player's
+            // default name
             System.out.println("ΣΑΣ ΔΟΘΗΚΕ ΤΟ ΟΝΟΜΑ: Player 2");
             playerName = "Player 2";
         }
