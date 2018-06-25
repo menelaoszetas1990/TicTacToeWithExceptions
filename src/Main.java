@@ -73,18 +73,15 @@ public class Main {
             // again his choice
             catch (IndexOutOfBoundsException e1) {
                 System.out.println(e1);
-                i--;
             }
             // if user choice is on an already chosen shell throw error
             catch (ChoiceAlreadyExistsException e2){
                 System.out.println(e2);
 //                ticTacToePanel.showTheBorder(panelArray);
-                i--;
             }
             catch (InputMismatchException e3) {
                 System.out.println("ΛΑΘΟΣ ΕΙΣΑΓΩΓΗ!\nΠΑΡΑΚΑΛΩ ΕΙΣΑΓΕΤΕ ΑΡΙΘΜΟ ΑΠΟ 1 ΕΩΣ 3");
                 userInput.nextLine();
-                i--;
             }
         }
     }
@@ -93,20 +90,26 @@ public class Main {
     private static void getPlayerNames() {
         String playerName;
 
-        System.out.println("ΠΑΡΑΚΑΛΩ ΔΩΣΤΕ ΤΟ ΟΝΟΜΑ ΤΟΥ ΠΡΩΤΟΥ ΠΑΙΧΤΗ:");
+        System.out.println("ΠΑΡΑΚΑΛΩ ΔΩΣΤΕ ΤΟ ΟΝΟΜΑ ΤΟΥ ΠΡΩΤΟΥ ΠΑΙΧΤΗ ΑΛΛΙΩΣ ΠΑΤΗΣΤΕ ENTER ΓΙΑ ΟΝΟΜΑ \"Player 1\":");
         playerName = userInput.nextLine();
+        playerName = playerName.trim();
         // if user does not give a name, then he is assigned his player's
         // default name
-        if (playerName.equals("")) {
+        String playerNameValidity = playerName;
+        if (playerName.equals("") || playerNameValidity.replaceAll(" ", "").equals("")) {
+            System.out.println("ΣΑΣ ΔΟΘΗΚΕ ΤΟ ΟΝΟΜΑ: Player 1");
             playerName = "Player 1";
         }
         players[0] = new Player(playerName);
 
-        System.out.println("ΠΑΡΑΚΑΛΩ ΔΩΣΤΕ ΤΟ ΟΝΟΜΑ ΤΟΥ ΔΕΥΤΕΡΟΥ ΠΑΙΧΤΗ:");
+        System.out.println("ΠΑΡΑΚΑΛΩ ΔΩΣΤΕ ΤΟ ΟΝΟΜΑ ΤΟΥ ΔΕΥΤΕΡΟΥ ΠΑΙΧΤΗ ΑΛΛΙΩΣ ΠΑΤΗΣΤΕ ENTER ΓΙΑ ΟΝΟΜΑ \"Player 2\":");
+        playerName = userInput.nextLine();
+        playerName = playerName.trim();
         // if user does not give a name, then he is assigned his player's
         // default name
-        playerName = userInput.nextLine();
-        if (playerName.equals("")) {
+        playerNameValidity = playerName;
+        if (playerName.equals("") || playerNameValidity.replaceAll(" ", "").equals("")) {
+            System.out.println("ΣΑΣ ΔΟΘΗΚΕ ΤΟ ΟΝΟΜΑ: Player 2");
             playerName = "Player 2";
         }
         players[1] = new Player(playerName);
