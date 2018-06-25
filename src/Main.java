@@ -107,17 +107,26 @@ public class Main {
 
         System.out.println("ΠΑΡΑΚΑΛΩ ΔΩΣΤΕ ΤΟ ΟΝΟΜΑ ΤΟΥ ΔΕΥΤΕΡΟΥ ΠΑΙΧΤΗ ΑΛΛΙΩΣ ΠΑΤΗΣΤΕ ENTER ΓΙΑ ΟΝΟΜΑ \"Player 2\":");
         playerName = userInput.nextLine();
-        // remove leading and trailing zeros
-        playerName = playerName.trim();
+        do {
+            // in case player 2 gives the same name as player 1
+            if (playerName.equals(players[0].toString())) {
+                System.out.println("ΔΕΝ ΜΠΟΡΕΙΤΕ ΝΑ ΕΧΕΤΕ ΙΔΙΟ ΟΝΟΜΑ ΜΕ ΤΟΝ ΠΡΏΤΟ ΠΑΙΧΤΗ!\n" +
+                        "ΠΑΡΑΚΑΛΩ ΔΩΣΤΕ ΤΟ ΟΝΟΜΑ ΤΟΥ ΔΕΥΤΕΡΟΥ ΠΑΙΧΤΗ ΑΛΛΙΩΣ ΠΑΤΗΣΤΕ ENTER ΓΙΑ ΟΝΟΜΑ \"Player 2\":");
+                playerName = userInput.nextLine();
+            }
 
-        // check if user input is null or just spaces
-        playerNameValidity = playerName;
-        if (playerName.equals("") || playerNameValidity.replaceAll(" ", "").equals("")) {
-            // if user does not give a name, then he is assigned his player's
-            // default name
-            System.out.println("ΣΑΣ ΔΟΘΗΚΕ ΤΟ ΟΝΟΜΑ: Player 2");
-            playerName = "Player 2";
-        }
+            // remove leading and trailing zeros
+            playerName = playerName.trim();
+
+            // check if user input is null or just spaces
+            playerNameValidity = playerName;
+            if (playerName.equals("") || playerNameValidity.replaceAll(" ", "").equals("")) {
+                // if user does not give a name, then he is assigned his player's
+                // default name
+                System.out.println("ΣΑΣ ΔΟΘΗΚΕ ΤΟ ΟΝΟΜΑ: Player 2");
+                playerName = "Player 2";
+            }
+        } while (playerName.equals(players[0].toString()));
         players[1] = new Player(playerName);
     }
 
